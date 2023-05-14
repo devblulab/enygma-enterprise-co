@@ -53,7 +53,7 @@ export default function Financas() {
               window.open("https://chipper-cajeta-b0d0e2.netlify.app/");
             }}
           >
-            Calculadora
+            Cal.
           </Button>
           <SegmentedControl
             data={[
