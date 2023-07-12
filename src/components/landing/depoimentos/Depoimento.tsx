@@ -36,6 +36,9 @@ export default function Depoimento(props: DepoimentoProps) {
             <p className="text-center text-zinc-400">
                 {props.texto}
             </p>
+            
         </div>
+        
+        
     )
 }

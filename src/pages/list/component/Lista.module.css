@@ -1,0 +1,51 @@
+/* Lista.module.css */
+
+.list-container {
+  margin: auto;
+  max-width: 600px;
+  padding: 16px;
+}
+
+.list-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.list-form {
+  margin-bottom: 16px;
+}
+
+.list-item {
+  margin-bottom: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-item-name {
+  flex-basis: 25%;
+}
+
+.list-item-quantity {
+  flex-basis: 15%;
+}
+
+.list-item-local {
+  flex-basis: 35%;
+}
+
+.list-item-actions {
+  flex-basis: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.list-item-remove-button {
+  margin-left: 8px;
+}
+
+.list-background {
+  background-color: #f5f5f5;
+}

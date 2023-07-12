@@ -48,6 +48,13 @@ export default function Financas() {
           >
             Nova transação
           </Button>
+          <Button className="bg-teal-900"
+            onClick={() => {
+              window.open("https://chipper-cajeta-b0d0e2.netlify.app/");
+            }}
+          >
+            Calculadora
+          </Button>
           <SegmentedControl
             data={[
               { label: <IconList />, value: "lista" },
@@ -57,8 +64,6 @@ export default function Financas() {
           />
         </div>
       </div>
-
-    
     );
   }
 

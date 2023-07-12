@@ -1,8 +1,8 @@
-import AutenticacaoContext from "@/data/contexts/AutenticacaoContext";
-import { Avatar, Menu } from "@mantine/core";
-import { IconArrowsRightLeft, IconLogout, IconUser } from "@tabler/icons-react";
-import Link from "next/link";
-import { useContext } from "react";
+import AutenticacaoContext from '@/data/contexts/AutenticacaoContext';
+import { Avatar, Menu } from '@mantine/core';
+import { IconArrowsRightLeft, IconLogout, IconUser } from '@tabler/icons-react';
+import Link from 'next/link';
+import { useContext } from 'react';
 
 export default function MenuUsuario() {
   const { usuario, logout } = useContext(AutenticacaoContext);
@@ -21,7 +21,7 @@ export default function MenuUsuario() {
             size={40}
             radius="xl"
             src={
-              usuario?.imagemUrl ?? "https://source.unsplash.com/random/100x100/?abstract"
+              usuario?.imagemUrl ?? 'https://source.unsplash.com/random/100x100/?abstract'
             }
           />
         </div>
@@ -29,15 +29,25 @@ export default function MenuUsuario() {
       <Menu.Dropdown>
         <Menu.Label>Usuário</Menu.Label>
         <Link href="/">
-          <Menu.Item icon={<IconArrowsRightLeft size={14} />}>
-            Finanças
-          </Menu.Item>
+          <Menu.Item icon={<IconArrowsRightLeft size={14} />}>Finanças</Menu.Item>
         </Link>
         <Link href="/usuario">
           <Menu.Item icon={<IconUser size={14} />}>Meus Dados</Menu.Item>
         </Link>
         <Link href="/contato">
           <Menu.Item icon={<IconUser size={14} />}>Contato</Menu.Item>
+        </Link>
+        <Link href="/post">
+          <Menu.Item icon={<IconUser size={14} />}>Feed</Menu.Item>
+        </Link>
+        <Link href="/inventorio">
+          <Menu.Item icon={<IconUser size={14} />}>Produto</Menu.Item>
+        </Link>
+        <Link href="/list">
+          <Menu.Item icon={<IconUser size={14} />}>Lista</Menu.Item>
+        </Link>
+        <Link href="/avisos">
+          <Menu.Item icon={<IconUser size={14} />}>Avisos</Menu.Item>
         </Link>
         <Menu.Divider />
         <Menu.Item color="red" icon={<IconLogout size={14} />} onClick={logout}>

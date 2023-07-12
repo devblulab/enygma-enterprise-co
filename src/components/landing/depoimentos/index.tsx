@@ -1,38 +1,164 @@
-import Area from "../comum/Area";
-import Depoimento from "./Depoimento";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import Link from "next/link";
+import Particles from "../../contatos/particles";
 
-export default function Depoimentos() {
-    return (
-        <Area id="depoimentos" className={`
-            bg-gradient-to-r from-black via-zinc-900 to-black
-            py-10 sm:py-20
-        `}>
-            <div className={`flex flex-col justify-center items-center`}>
-                <h2 className="font-thin text-zinc-600 text-2xl sm:text-4xl mb-11 text-center">
-                    As pessoas estão dizendo...
-                </h2>
-                <div className="flex justify-center xl:justify-between items-center justify-items-center gap-7 w-full flex-wrap">
-                    <Depoimento
-                        avatar="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2376&q=80"
-                        nome="Gabriel Junior"
-                        titulo="Desenvolvedor de Software"
-                        texto="Estava sempre devendo dinheiro na bodega da esquina. Hoje estou conseguindo pagar tudo em dia e até juntar um pouco de dinheiro."
-                    />
-                    <Depoimento
-                        avatar="https://images.unsplash.com/photo-1628890923662-2cb23c2e0cfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
-                        nome="Juliana Moraes"
-                        titulo="Diretora Comercial"
-                        texto="Estava sempre devendo dinheiro na bodega da esquina. Hoje estou conseguindo pagar tudo em dia e até juntar um pouco de dinheiro."
-                        destaque
-                    />
-                    <Depoimento
-                        avatar="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2334&q=80"
-                        nome="Rafaela Vieira"
-                        titulo="Servidora Pública"
-                        texto="Estava sempre devendo dinheiro na bodega da esquina. Hoje estou conseguindo pagar tudo em dia e até juntar um pouco de dinheiro."
-                    />
-                </div>
-            </div>
-        </Area>
-    )
-}
+
+
+
+
+const textVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.1, delay: -10 } },
+};
+
+
+
+const marqueeVariantss = {
+    hidden: { x: "-100%" , y: "-10%" },
+    
+    visible: {
+      x: "-150%",
+      transition: { duration: 15, ease: "linear", repeat: Infinity },
+    },
+  };
+
+  const marqueeVariantsss = {
+    hidden: { y: "-5%" },
+    visible: {
+      x: "70%",
+      transition: { duration: 15, ease: "linear", repeat: Infinity },
+    },
+  };
+
+const Home = () => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      controls.start("visible");
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.div
+      className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-blue-900/20 to-black"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 1 } }}
+    >
+      <motion.nav
+        className="my-16 animate-fade-in"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 10 } }}
+      >
+        
+      </motion.nav>
+      <motion.div
+        className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-cyan-300/50 to-zinc-300/0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 10 } }}
+      />
+      <Particles className="absolute inset-0 -z-10 animate-fade-in" quantity={100} />
+      <motion.h1
+        className="z-10 text-4xl text-transparent duration- 300 bg-zinc-400 cursor-default text-edge-outline animate-title font-display sm:text-10xl md:text-9xl whitespace-nowrap bg-clip-text"
+        initial="hidden"
+        animate="visible"
+        variants={marqueeVariantss}
+        style={{ fontFamily: "Roboto Mono, monospace", fontStyle: "italic" }}
+      >
+        <motion.span variants={textVariants}>E</motion.span>
+        <motion.span variants={textVariants}>n</motion.span>
+        <motion.span variants={textVariants}>y</motion.span>
+        <motion.span variants={textVariants}>g</motion.span>
+        <motion.span variants={textVariants}>m</motion.span>
+        <motion.span variants={textVariants}>a</motion.span>       
+</motion.h1>
+<motion.div
+className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0"
+initial={{ opacity: 0 }}
+animate={{ opacity: 1, transition: { duration: 10 } }}
+/>
+<motion.h1
+        className="z-10 text-4xl text-transparent duration- 300 bg-zinc-400 cursor-default text-edge-outline animate-title font-display sm:text-10xl md:text-9xl whitespace-nowrap bg-clip-text"
+        initial="hidden"
+        animate="visible"
+        variants={marqueeVariantsss}
+        style={{ fontFamily: "Roboto Mono, monospace", fontStyle: "italic" }}
+      >
+       
+        <motion.span variants={textVariants}>E</motion.span>
+        <motion.span variants={textVariants}>n</motion.span>
+        <motion.span variants={textVariants}>t</motion.span>
+        <motion.span variants={textVariants}>e</motion.span>
+<motion.span variants={textVariants}>r</motion.span>
+<motion.span variants={textVariants}>P</motion.span>
+<motion.span variants={textVariants}>r</motion.span>
+<motion.span variants={textVariants}>i</motion.span>
+<motion.span variants={textVariants}>s</motion.span>
+<motion.span variants={textVariants}>e</motion.span>
+</motion.h1>
+<motion.div
+className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-100/50 to-zinc-300/0"
+initial={{ opacity: 0 }}
+animate={{ opacity: 1, transition: { duration: 10 } }}
+/>
+<h4 className="text-sm text-zinc-500">
+Desbrave o terreno das suas finanças com confiança e controle!
+</h4>
+<motion.div
+className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-cyan-300/50 to-zinc-300/0"
+initial={{ opacity: 0 }}
+animate={{ opacity: 1, transition: { duration: 10 } }}
+/>
+
+<motion.div
+className="my-16 text-center animate-fade-in"
+initial={{ opacity: 0 }}
+animate={{ opacity: 1, transition: { duration: 10 } }}
+>
+<motion.h2
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-sm text-zinc-500"
+    >
+      Hi, my name is Gustavo Martins, and I am a programmer specializing in Apps. I have a passion for building serverless and open-source solutions. Currently, I am working{' '}
+      <a
+        href="https://enygma-enterprise-co.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline duration-500 hover:text-zinc-300"
+      >
+        Upstash
+      </a>{' '}
+      where I contribute to the development of cutting-edge technologies. In addition, I also work on personal projects like{' '}
+      <a
+        href="https://enygma-enterprise-co.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline duration-500 hover:text-zinc-300"
+      >
+        enygmadevlab.com
+      </a>{' '}
+      during my free time.
+    </motion.h2>
+
+<motion.div
+className="text-4xl text-zinc-500 mt-4 overflow-hidden"
+style={{ whiteSpace: "nowrap" }}
+initial="hidden"
+animate="visible"
+variants={marqueeVariantss}
+>
+    
+<motion.span variants={marqueeVariantss}>Sucesso / Status / Sustentabilidade / Diversidade e Inclusão / Orientação ao Cliente / Qualidade / Aprendizado Contínuo /  Responsabilidade Social / Trabalho em Equipe /  Iniciativa.</motion.span>
+</motion.div>
+
+</motion.div>
+</motion.div>
+
+);
+};
+
+export default Home;
